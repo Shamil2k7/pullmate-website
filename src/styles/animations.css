@@ -1,0 +1,145 @@
+/* Pip Mascot & UI Animations */
+
+@keyframes pipFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes shadowScale {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.16;
+  }
+  50% {
+    transform: scale(0.88);
+    opacity: 0.10;
+  }
+}
+
+@keyframes orbPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px currentColor);
+    opacity: 0.9;
+  }
+  50% {
+    filter: drop-shadow(0 0 10px currentColor);
+    opacity: 1;
+  }
+}
+
+@keyframes eyeBlink {
+  0%, 92%, 100% {
+    transform: scaleY(1);
+  }
+  96% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes armWave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-24deg);
+  }
+  75% {
+    transform: rotate(18deg);
+  }
+}
+
+@keyframes scanEye {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  30% {
+    transform: translateX(3px);
+  }
+  70% {
+    transform: translateX(-3px);
+  }
+}
+
+@keyframes sleepFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.7);
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px) translateX(8px) scale(1.1);
+  }
+}
+
+@keyframes subtlePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.85;
+  }
+}
+
+.pip-float-wrapper {
+  animation: pipFloat 4s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+.pip-shadow-pulse {
+  animation: shadowScale 4s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+.pip-antenna-orb {
+  animation: orbPulse 2.4s ease-in-out infinite;
+}
+
+.pip-eye-animated {
+  transform-origin: center center;
+  animation: eyeBlink 5s ease-in-out infinite;
+}
+
+.pip-arm-waving {
+  transform-origin: 26px 78px;
+  animation: armWave 1.4s ease-in-out infinite;
+}
+
+.scan-eye-left, .scan-eye-right {
+  animation: scanEye 1.6s ease-in-out infinite;
+}
+
+.sleep-z {
+  display: inline-block;
+  animation: sleepFloat 2.6s ease-in-out infinite;
+  color: #64748B;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  position: absolute;
+}
+
+.sleep-z.z1 { animation-delay: 0s; left: 68px; top: -4px; font-size: 11px; }
+.sleep-z.z2 { animation-delay: 0.8s; left: 82px; top: -14px; font-size: 14px; }
+.sleep-z.z3 { animation-delay: 1.6s; left: 96px; top: -26px; font-size: 18px; }
+
+/* Accessible motion reduction */
+@media (prefers-reduced-motion: reduce) {
+  .pip-float-wrapper,
+  .pip-shadow-pulse,
+  .pip-antenna-orb,
+  .pip-eye-animated,
+  .pip-arm-waving,
+  .scan-eye-left,
+  .scan-eye-right,
+  .sleep-z {
+    animation: none !important;
+  }
+}
